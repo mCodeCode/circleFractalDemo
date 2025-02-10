@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./uiStyle.css" />
+    <title>Circle Fractal algorithm with UI</title>
+  </head>
+  <body style="background-color: rgb(132, 132, 132)">
+    <canvas id="mainCanvas" width="700" height="570"></canvas>
+    <div id="main-ui-div" class="main-ui-div-css">
+      <div class="slider-title ui-title-label">
+        Fractal Settings. Toggle menu on/off with the "q" key, drag menu around
+        using the mouse
+      </div>
+      <!-- main circle position slider (starting point of the fractal) -->
+      <div class="ui-row-div">
+        <div class="label-and-range-div">
+          <label class="slider-title" for="main-circle-slide-pos-x"
+            >Main Circle Center X</label
+          >
+          <input
+            type="range"
+            min="0"
+            max="700"
+            value="0"
+            class="slider"
+            id="main-circle-slide-pos-x"
+          />
+          <label id="main-circle-pos-x-result">0</label>
+        </div>
+        <!-- <div class="space-between-ranges"></div> -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="main-circle-slide-pos-y"
+            >Main Circle Center Y</label
+          >
+          <input
+            type="range"
+            min="0"
+            max="570"
+            value="0"
+            class="slider"
+            id="main-circle-slide-pos-y"
+          />
+          <label id="main-circle-pos-y-result">0</label>
+        </div>
+        <!-- main circle radius slider -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="main-circle-radius-slider"
+            >Main Circle Radius</label
+          >
+          <input
+            type="range"
+            min="1"
+            max="300"
+            value="1"
+            class="slider"
+            id="main-circle-radius-slider"
+          />
+          <label id="main-circle-radius-result">1</label>
+        </div>
+      </div>
+      <div class="ui-row-div">
+        <!-- smallest radius allowed slider -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="smallest-radius-allowed"
+            >Smallest Radius Allowed</label
+          >
+          <input
+            type="range"
+            min="3"
+            max="100"
+            value="3"
+            class="slider"
+            id="smallest-radius-allowed"
+          />
+          <label id="smallest-radius-allowed-result">3</label>
+        </div>
+        <!-- circle pieces slider -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="circle-pieces-slider"
+            >Split circle in fixed P pieces</label
+          >
+          <input
+            type="range"
+            min="2"
+            max="100"
+            value="2"
+            class="slider"
+            id="circle-pieces-slider"
+          />
+          <label id="circle-pieces-slider-result">2</label>
+        </div>
+        <!-- radius reduction value slider -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="radius-reduction-slider"
+            >Radius reduction in each loop</label
+          >
+          <input
+            type="range"
+            min="2"
+            max="100"
+            value="2"
+            class="slider"
+            id="radius-reduction-slider"
+          />
+          <label id="radius-reduction-slider-result">2</label>
+        </div>
+      </div>
+      <div class="ui-row-div">
+        <!-- Divide in Random Pieces -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="">Divide in Random Pieces?</label>
+          <input type="checkbox" id="divide-in-random-checkbox" checked />
+        </div>
+        <!-- max random pieces slider -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="random-circle-pieces-slider"
+            >Random max pieces</label
+          >
+          <input
+            type="range"
+            min="2"
+            max="100"
+            value="2"
+            class="slider"
+            id="random-circle-pieces-slider"
+          />
+          <label id="random-circle-pieces-slider-result">2</label>
+        </div>
+        <!-- line color -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="line-color-picker">Line color</label>
+          <input type="color" id="line-color-picker" />
+        </div>
+      </div>
+      <div class="ui-row-div">
+        <!-- line width -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="line-width-slider">Line width</label>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="1"
+            class="slider"
+            id="line-width-slider"
+          />
+          <label id="line-width-slider-result">1</label>
+        </div>
+        <!-- fill tangent circles -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="fill-tangent-circles-checkbox"
+            >Fill tangent circles?</label
+          >
+          <input type="checkbox" id="fill-tangent-circles-checkbox" />
+        </div>
+        <!-- fill tangent point circles -->
+        <div class="label-and-range-div">
+          <label class="slider-title" for="fill-tangent-point-circles-checkbox"
+            >Fill tangent point circles?</label
+          >
+          <input type="checkbox" id="fill-tangent-point-circles-checkbox" />
+        </div>
+      </div>
+      <button class="generate-btn" id="generate-btn-id">
+        Generate New Fractal
+      </button>
+    </div>
+    <script src="./uiLogic.js"></script>
+    <script src="./drawCode.js"></script>
+  </body>
+</html>
